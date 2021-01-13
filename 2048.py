@@ -2,8 +2,8 @@
 #Functions
 
 #grid =[] #remove later!!!!!!!!!!!!!!!!!!!!!!!!
-
-def startGame(size):
+size = 5
+def startGame():
     index = 0
     grid = []
     for _ in range(size**2):
@@ -14,7 +14,7 @@ def startGame(size):
         index = index+1
     return grid
 
-def printGrid(grid, size):
+def printGrid(grid):
     index = 0
     for _ in range(size):
         for _ in range(size):
@@ -23,17 +23,23 @@ def printGrid(grid, size):
         print("")
 
 #returns a particular column as a list
-def getCol(grid, size, colNum):
+def getCol(grid, colNum):
     column = []
-    rowNum = 1
-    
+    index = colNum - 1
     for _ in range(size):
-        index = rowNum*colNum - 1
         column.append(grid[index])
-        rowNum = rowNum + 1
+        index = index + size
     return column
 
-#def rotateAntiClock(grid, size):
+def rotateAntiClock(grid):
+    grid2 = []
+    colNum = size
+    for _ in range(size):
+        col = getCol(grid, colNum)
+        for num in col:
+            grid2.append(num)
+        colNum = colNum-1
+    return grid2
 
 
 
@@ -42,6 +48,20 @@ def getCol(grid, size, colNum):
 
 #Main code
 size = 5
-grid = startGame(size)
-printGrid(grid, size)
-print(getCol(grid, size, 5))
+grid = startGame()
+printGrid(grid)
+grid = rotateAntiClock(grid)
+print("")
+printGrid(grid)
+
+grid = rotateAntiClock(grid)
+print("")
+printGrid(grid)
+
+grid = rotateAntiClock(grid)
+print("")
+printGrid(grid)
+
+grid = rotateAntiClock(grid)
+print("")
+printGrid(grid)
