@@ -1,11 +1,10 @@
 
-#Functions
-import random
-
 #global variables
-size = 2
+size = 4
 inp = ""
 
+#Functions
+import random
 
 def startGame():
     index = 0
