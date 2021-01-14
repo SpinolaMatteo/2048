@@ -49,6 +49,16 @@ def empty(row, low_limit, high_limit):
             count = count+1
     return count
 
+def arrange(grid, low_limit, high_limit):
+    numZero = empty(grid, low_limit, high_limit-1)
+    count1 = 0
+    while count1 <= numZero:
+        for i in range(low_limit,high_limit-1):
+            if grid[i] == 0:
+                grid[i] = grid[i+1]
+                grid[i+1] = 0
+        count1 = count1+1
+
 
 
 #def moveLeft(grid):
@@ -58,6 +68,5 @@ def empty(row, low_limit, high_limit):
 
 grid = startGame()
 printGrid(grid)
-
 
 
