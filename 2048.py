@@ -39,29 +39,25 @@ def rotateAntiClock(grid):
         for num in col:
             grid2.append(num)
         colNum = colNum-1
-    return grid2
+    grid[:] = grid2
+
+#returns the number of empty spaces in a given list with a between a starting and ending index inclusive
+def empty(row, low_limit, high_limit):
+    count = 0
+    for i in range(low_limit, high_limit):
+        if row[i] == 0:
+            count = count+1
+    return count
 
 
 
-        
+#def moveLeft(grid):
 
 
 #Main code
-size = 5
+
 grid = startGame()
 printGrid(grid)
-grid = rotateAntiClock(grid)
-print("")
-printGrid(grid)
 
-grid = rotateAntiClock(grid)
-print("")
-printGrid(grid)
 
-grid = rotateAntiClock(grid)
-print("")
-printGrid(grid)
 
-grid = rotateAntiClock(grid)
-print("")
-printGrid(grid)
